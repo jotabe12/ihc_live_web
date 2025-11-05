@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="../css/registrar.css">
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="header">
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../asset/Logo.png" alt="Logo ViviEstu">
+        </a>
+      </div>
+    </div>
+
+    <div class="form-content">
+      <h1>Únete a nosotros</h1>
+
+      <form id="registerForm">
+        <input type="email" id="email" placeholder="Email" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <input type="text" id="nombre" placeholder="Nombres" required>
+        <input type="tel" id="celular" placeholder="Celular" required>
+
+        <button type="submit">Registrarse</button>
+      </form>
+
+      <div class="additional-options" style="margin-top: 20px; text-align: center;">
+        <p style="color: #12213a; font-size: 13px;">¿Ya tienes cuenta? <a href="iniciar_sesion.html" style="color: #0d0d20; text-decoration: underline;">Inicia sesión</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const nombre = document.getElementById('nombre').value;
+      const celular = document.getElementById('celular').value;
+
+      if (email && password && nombre && celular) {
+        window.location.href = '../index.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
