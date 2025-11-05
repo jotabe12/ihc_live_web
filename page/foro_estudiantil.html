@@ -8,20 +8,23 @@
 </head>
 <body>
 
-    <header>
-        <div class="logo">ViviEstu</div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Zonas</a>
-            <a href="#">Simulador</a>
-            <a href="#">Foro</a>
-            <a href="#">Contacto</a>
-        </nav>
-        <div>
-            <button class="btn btn-login">Iniciar sesión</button>
-            <button class="btn btn-register">Registrarse</button>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../asset/Logo.png" alt="Logo ViviEstu">
+            </a>
         </div>
-    </header>
+        <ul>
+            <li><a href="mapa_seguridad.html">Zonas</a></li>
+            <li><a href="mapa_seguridad.html">Comparador</a></li>
+            <li><a href="foro_estudiantil.html">Comunidad</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        <div class="nav-buttons">
+            <button class="btn-login" onclick="window.location.href='iniciar_sesion.html'">Iniciar Sesión</button>
+            <button class="btn-register" onclick="window.location.href='registrar.html'">Registrarse</button>
+        </div>
+    </nav>
 
     <section class="foro-container">
         <h1>Foro de Estudiantes</h1>

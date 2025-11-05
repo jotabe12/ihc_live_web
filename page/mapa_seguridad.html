@@ -8,24 +8,25 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">ViviEstu</div>
-      <div class="menu">
-        <a href="#">Inicio</a>
-        <a href="#">Zonas</a>
-        <a href="#">Comparador</a>
-        <a href="#">Comunidad</a>
-        <a href="#">Contacto</a>
-      </div>
-      <div class="botones">
-        <button class="btn iniciar">Iniciar Sesión</button>
-        <button class="btn registrar">Registrarse</button>
-      </div>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="../index.html">
+        <img src="../asset/Logo.png" alt="Logo ViviEstu">
+      </a>
+    </div>
+    <ul>
+      <li><a href="mapa_seguridad.html">Zonas</a></li>
+      <li><a href="mapa_seguridad.html">Comparador</a></li>
+      <li><a href="foro_estudiantil.html">Comunidad</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="nav-buttons">
+      <button class="btn-login" onclick="window.location.href='iniciar_sesion.html'">Iniciar Sesión</button>
+      <button class="btn-register" onclick="window.location.href='registrar.html'">Registrarse</button>
+    </div>
+  </nav>
 
-  <h2 style="color:#007c91; margin-top:25px;">Mapa de Seguridad ViviEstu</h2>
+  <h2>Mapa de Seguridad ViviEstu</h2>
   <p>Zonas seguras (verde) y zonas de riesgo (rojo)</p>
 
   <div class="map-container">

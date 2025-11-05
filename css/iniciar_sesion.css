@@ -1,0 +1,146 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #e5e5e5;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.form-container {
+  width: 100%;
+  background-color: #b7d3d5;
+  overflow: hidden;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  background-color: #e3a13b;
+  text-align: center;
+  padding: 30% 0;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%);
+}
+
+.header .logo {
+  max-width: 100%;
+}
+
+.header .logo a {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.header .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.form-content {
+  padding: 5% 5%;
+  text-align: center;
+}
+
+.form-content h1 {
+  color: #12213a;
+  font-size: 20px;
+  margin-bottom: 5%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #333;
+  background-color: transparent;
+  padding: 1% 0;
+  font-size: 14px;
+  color: #000;
+}
+
+input::placeholder {
+  color: #6b7b7c;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+}
+
+button[type="submit"] {
+  background-color: #0d0d20;
+  color: #fff;
+  border: none;
+  padding: 1.3%;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #222244;
+}
+
+.additional-options {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.link-option {
+  color: #12213a;
+  text-decoration: underline;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.link-option:hover {
+  color: #0d0d20;
+}
+
+.separator {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #6b7b7c;
+  line-height: 0.1em;
+  margin: 10px 0 20px;
+}
+
+.separator span {
+  background: #b7d3d5;
+  padding: 0 10px;
+  color: #6b7b7c;
+}
+
+.link-register {
+  background-color: #e3a13b;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.link-register:hover {
+  background-color: #d69332;
+}
+

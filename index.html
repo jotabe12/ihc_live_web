@@ -9,19 +9,19 @@
 <body>
   <nav class="navbar">
     <div class="logo">
-      <img src="https://placehold.co/60x60" alt="Logo">
-      <span>ViviEstu</span>
+      <a href="index.html">
+        <img src="asset/Logo.png" alt="Logo ViviEstu">
+      </a>
     </div>
     <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Zonas</a></li>
-      <li><a href="#">Comparador</a></li>
-      <li><a href="#">Comunidad</a></li>
+      <li><a href="page/mapa_seguridad.html">Zonas</a></li>
+      <li><a href="page/mapa_seguridad.html">Comparador</a></li>
+      <li><a href="page/foro_estudiantil.html">Comunidad</a></li>
       <li><a href="#">Contacto</a></li>
     </ul>
     <div class="nav-buttons">
-      <button class="btn-login">Iniciar Sesión</button>
-      <button class="btn-register">Registrarse</button>
+      <button class="btn-login" onclick="window.location.href='page/iniciar_sesion.html'">Iniciar Sesión</button>
+      <button class="btn-register" onclick="window.location.href='page/registrar.html'">Registrarse</button>
     </div>
   </nav>
 
@@ -40,7 +40,7 @@
   <section class="main-content">
     <h2>¿Cómo te ayuda ViviEstu?</h2>
     <div class="features">
-      <div class="card">
+      <div class="card" onclick="window.location.href='page/mapa_seguridad.html'" style="cursor: pointer;">
         <img src="https://placehold.co/100x100" alt="">
         <h3>Compara zonas</h3>
         <p>Precio, seguridad y transporte</p>
@@ -50,7 +50,7 @@
         <h3>Simula tu costo mensual</h3>
         <p>Alquiler + transporte</p>
       </div>
-      <div class="card">
+      <div class="card" onclick="window.location.href='page/mapa_seguridad.html'" style="cursor: pointer;">
         <img src="https://placehold.co/100x100" alt="">
         <h3>Simula mapas</h3>
         <p>Con reseñas verificadas</p>
@@ -119,8 +119,9 @@
         <h3>Explorar</h3>
         <ul>
           <li><a href="#">Zonas Cercanas</a></li>
-          <li><a href="#">Comparador</a></li>
+          <li><a href="page/mapa_seguridad.html">Comparador</a></li>
           <li><a href="#">Viviendas</a></li>
+          <li><a href="page/perfil_usuario.html">Ver mi perfil</a></li>
         </ul>
       </div>
       <div>
