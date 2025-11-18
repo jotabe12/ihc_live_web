@@ -37,18 +37,36 @@
     </div>
   </div>
 
+  <!-- ============================== -->
+  <!--  LOCALSTORAGE PARA LOGIN       -->
+  <!-- ============================== -->
+
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
 
-      if (email && password) {
-        window.location.href = '../index.html';
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Validación simple
+      if (!email || !password) {
+        alert("Completa todos los campos");
+        return;
       }
+
+      // Guardar usuario en el localStorage
+      localStorage.setItem('usuario', email);
+
+      // Redirigir al inicio
+      window.location.href = '../index.html';
     });
+
+    // Si ya está logeado, evitar que vuelva a login
+    if (localStorage.getItem('usuario')) {
+      // Si ya hay sesión, enviarlo al index automáticamente
+      window.location.href = '../index.html';
+    }
   </script>
 
 </body>
 </html>
-
