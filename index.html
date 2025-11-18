@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Encuentra la zona ideal para vivir con ViviEstu. Compara zonas, costos y reseñas verificadas para estudiantes.">
   <title>ViviEstu</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+<!-- NAVIGATION -->
 <nav class="navbar">
   <div class="logo">
     <img src="https://placehold.co/60x60" alt="Logo ViviEstu">
     <span>ViviEstu</span>
   </div>
 
+  <!-- Menú principal centrado -->
   <ul class="nav-links">
     <li><a href="#">Inicio</a></li>
     <li><a href="#">Zonas</a></li>
@@ -23,10 +25,12 @@
     <li><a href="#">Comunidad</a></li>
     <li><a href="#">Contacto</a></li>
 
+    <!-- Botones Mobile -->
     <li class="mobile-only"><button class="btn-login" id="btnLogin">Iniciar Sesión</button></li>
     <li class="mobile-only"><button class="btn-register" id="btnRegister">Registrarse</button></li>
   </ul>
 
+  <!-- Botones de escritorio a la derecha -->
   <div class="nav-buttons desktop-only">
     <span id="saludoUsuario" style="display:none; color:#fff; margin-right:15px; font-weight:600;"></span>
 
@@ -36,9 +40,12 @@
     <button id="btnCerrarSesion" style="display:none;">Cerrar sesión</button>
   </div>
 
+  <!-- Ícono del menú hamburguesa -->
   <div class="menu-toggle" id="menu-toggle">☰</div>
 </nav>
 
+
+  <!-- HERO -->
   <section class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
@@ -51,6 +58,7 @@
     </div>
   </section>
 
+  <!-- MAIN CONTENT -->
   <main>
     <section class="main-content">
       <h2>¿Cómo te ayuda ViviEstu?</h2>
@@ -75,6 +83,7 @@
       </div>
     </section>
 
+    <!-- RECOMMENDATIONS -->
     <section class="recommendations">
       <h2>Viviendas Destacadas</h2>
       <div class="property-grid">
@@ -97,10 +106,11 @@
         </div>
       </div>
 
-      <a href="catalogo.html" class="btn-catalogo">Ver catálogo</a>
+      <a href="page/catalogo.html" class="btn-catalogo">Ver catálogo</a>
       
     </section>
 
+    <!-- TESTIMONIALS -->
     <section class="testimonials">
       <h2>Lo que dicen otros estudiantes</h2>
       <div class="testimonial-grid">
@@ -128,6 +138,7 @@
       </div>
     </section>
 
+    <!-- COMMUNITY -->
     <section class="community">
       <h2>Únete a ViviEstu</h2>
       <p>Recibe consejos y datos exclusivos sobre las mejores zonas para vivir.</p>
@@ -138,6 +149,7 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-cols">
       <div class="footer-col">
@@ -171,12 +183,20 @@
   </footer>
 
 <script>
+  // ========================
+  // Menú hamburguesa
+  // ========================
   const toggle = document.getElementById('menu-toggle');
   const navLinks = document.querySelector('.nav-links');
 
   toggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
   });
+
+
+  // ========================
+  // LOCAL STORAGE + DOM
+  // ========================
 
   const saludo = document.getElementById("saludoUsuario");
   const btnCerrar = document.getElementById("btnCerrarSesion");
@@ -186,11 +206,13 @@
   const btnLoginDesk = document.getElementById("btnLoginDesktop");
   const btnRegisterDesk = document.getElementById("btnRegisterDesktop");
 
-  btnLogin.onclick = () => window.location.href = "html/iniciar_sesion.html";
-  btnRegister.onclick = () => window.location.href = "html/registrar.html";
-  btnLoginDesk.onclick = () => window.location.href = "html/iniciar_sesion.html";
-  btnRegisterDesk.onclick = () => window.location.href = "html/registrar.html";
+  // Navegación a login/registro
+  btnLogin.onclick        = () => window.location.href = "page/iniciar_sesion.html";
+  btnRegister.onclick     = () => window.location.href = "page/registrar.html";
+  btnLoginDesk.onclick    = () => window.location.href = "page/iniciar_sesion.html";
+  btnRegisterDesk.onclick = () => window.location.href = "page/registrar.html";
 
+  // Leer LocalStorage
   const usuario = JSON.parse(localStorage.getItem("usuario"));
   const sesionActiva = localStorage.getItem("sesionActiva");
 
@@ -209,6 +231,7 @@
     btnCerrar.style.display = "none";
   }
 
+  // Cerrar sesión
   btnCerrar.addEventListener("click", () => {
     localStorage.removeItem("sesionActiva");
     localStorage.removeItem("usuarioActivo");
