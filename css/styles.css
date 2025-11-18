@@ -11,7 +11,7 @@ body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:#333}
 .btn-register{background:#419aa2}
 .nav-buttons button{margin-left:10px;padding:10px 20px;border:none;border-radius:50px;cursor:pointer;color:#fff;font-weight:bold;transition:opacity .3s}
 .nav-buttons button:hover{opacity:.85}
-.hero{position:relative;background:url('https://placehold.co/1440x645') center/cover no-repeat;height:600px;color:#fff;text-align:center}
+.hero{position:relative;background:url('../asset/img_Hero.JPG') center/cover no-repeat;height:600px;color:#fff;text-align:center}
 .hero .overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
 .hero-content{position:relative;top:50%;transform:translateY(-50%)}
 .hero h1{font-size:48px;margin-bottom:10px}
