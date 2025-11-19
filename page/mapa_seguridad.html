@@ -8,28 +8,30 @@
     <!--aqui va la api-->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 
+    <link rel="stylesheet" href="../css/agendar_visita.css">
     <link rel="stylesheet" href="../css/mapa_seguridad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
+    <header class="header">
+        <div class="logo-container">
             <a href="../index.html">
-                <img src="../asset/Logo.png" alt="Logo ViviEstu">
+                <img src="../asset/Logo.png" alt="ViviEstu Logo" class="logo">
             </a>
         </div>
-        <ul>
-            <li><a href="mapa_seguridad.html">Zonas</a></li>
-            <li><a href="mapa_seguridad.html">Comparador</a></li>
-            <li><a href="foro_estudiantil.html">Comunidad</a></li>
-            <li><a href="agendar_visita.html">Contacto</a></li>
-        </ul>
+        <nav class="nav-menu">
+            <a href="../index.html">Inicio</a>
+            <a href="mapa_seguridad.html">Zonas</a>
+            <a href="catalogo.html">Comparador</a>
+            <a href="foro_estudiantil.html">Comunidad</a>
+            <a href="agendar_visita.html">Contacto</a>
+        </nav>
         <div class="nav-buttons">
             <button class="btn-login" id="btnLoginDesktop">Iniciar Sesión</button>
             <button class="btn-register" id="btnRegisterDesktop">Registrarse</button>
         </div>
-    </nav>
+    </header>
 
     <section class="map-section">
         <h1>Mapa de Seguridad ViviEstu</h1>

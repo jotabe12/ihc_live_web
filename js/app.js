@@ -87,17 +87,17 @@ const HeaderManager = {
             userProfile.innerHTML = `
                 <div class="user-profile-trigger">
                     <div class="user-avatar">
-                        <i class="fas fa-user"></i>
+                        👤
                     </div>
                     <span class="user-name">${user.nombre}</span>
                     <i class="fas fa-chevron-down dropdown-arrow"></i>
                 </div>
                 <div class="dropdown-menu" id="dropdownMenu">
                     <a href="${basePath}page/perfil_usuario.html" class="dropdown-item">
-                        <i class="fas fa-user-circle"></i> Ver Perfil
+                        <span class="dropdown-icon">👤</span> Ver Perfil
                     </a>
                     <a href="#" id="btnCerrarSesionDropdown" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                        <span class="dropdown-icon">🚪</span> Cerrar Sesión
                     </a>
                 </div>
             `;
@@ -174,44 +174,54 @@ const HeaderManager = {
             .user-profile-trigger {
                 display: flex;
                 align-items: center;
-                gap: 10px;
+                gap: 12px;
                 cursor: pointer;
                 padding: 8px 15px;
-                background-color: rgba(255, 255, 255, 0.1);
+                background-color: rgba(255, 255, 255, 0.6);
                 border-radius: 25px;
-                transition: background-color 0.3s ease;
+                transition: all 0.3s ease;
+                border: 2px solid transparent;
             }
 
             .user-profile-trigger:hover {
-                background-color: rgba(255, 255, 255, 0.2);
+                background-color: rgba(255, 255, 255, 0.9);
+                border-color: #007c91;
+                box-shadow: 0 2px 8px rgba(0, 124, 145, 0.2);
             }
 
             .user-avatar {
-                width: 35px;
-                height: 35px;
+                width: 40px;
+                height: 40px;
                 border-radius: 50%;
-                background-color: #007c91;
+                background: linear-gradient(135deg, #007c91 0%, #005f6b 100%);
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color: white;
-                font-size: 16px;
+                font-size: 22px;
+                box-shadow: 0 2px 8px rgba(0, 124, 145, 0.3);
             }
 
             .user-name {
-                color: white;
+                color: #333;
                 font-weight: 600;
                 font-size: 15px;
             }
 
             .dropdown-arrow {
-                color: white;
+                color: #333;
                 font-size: 12px;
                 transition: transform 0.3s ease;
             }
 
             .user-profile-trigger:hover .dropdown-arrow {
                 transform: rotate(180deg);
+            }
+
+            .dropdown-icon {
+                font-size: 18px;
+                display: inline-block;
+                width: 24px;
+                text-align: center;
             }
 
             .dropdown-menu {
@@ -255,6 +265,10 @@ const HeaderManager = {
                 color: #007c91;
                 font-size: 16px;
                 width: 20px;
+            }
+
+            .dropdown-item:first-child {
+                border-bottom: 1px solid #e0e0e0;
             }
 
             /* Responsive adjustments */

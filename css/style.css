@@ -14,173 +14,156 @@ img {
 }
 
 /* ===============================
-   NAVBAR
+   HEADER UNIFICADO
 =============================== */
-.navbar {
+.header {
+  background-color: #e0e0e0;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 60px;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
+}
+
+.logo-container {
+  flex: 0 0 auto;
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: bold;
-  color: #3b8c91;
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* ====== MENÚ CENTRADO ====== */
-.nav-links {
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
   display: flex;
-  justify-content: center;
-  gap: 25px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  gap: 30px;
   flex: 1;
+  justify-content: center;
 }
 
-.nav-links a {
-  color: #333;
+.nav-menu a {
   text-decoration: none;
+  color: #007c91;
   font-weight: 500;
-  transition: color 0.3s ease;
+  font-size: 16px;
+  transition: color 0.3s;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: #3b8c91;
+.nav-menu a:hover {
+  color: #005f6b;
 }
 
-/* ====== BOTONES DERECHA ====== */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #007c91;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
 .nav-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  align-items: center;
 }
 
-.btn-login,
-.btn-register {
+.btn-login, .btn-register {
+  padding: 10px 20px;
   border: none;
-  border-radius: 40px;
-  color: white;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  padding: 10px 22px;
   transition: all 0.3s ease;
 }
 
 .btn-login {
-  background: #f8b547;
+  background-color: transparent;
+  color: #007c91;
+  border: 2px solid #007c91;
+}
+
+.btn-login:hover {
+  background-color: #007c91;
+  color: white;
 }
 
 .btn-register {
-  background: #3b8c91;
+  background-color: #007c91;
+  color: white;
 }
 
-.btn-login:hover,
 .btn-register:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* Ícono del menú */
-.menu-toggle {
-  display: none;
-  font-size: 28px;
-  color: #3b8c91;
-  cursor: pointer;
-}
-
-/* Oculta los elementos solo para móvil/escritorio */
-.mobile-only {
-  display: none;
-}
-
-.desktop-only {
-  display: flex;
+  background-color: #005f6b;
 }
 
 /* ===============================
    RESPONSIVE DESIGN
 =============================== */
-@media (max-width: 900px) {
-  /* Oculta botones grandes */
-  .desktop-only {
-    display: none;
+@media (max-width: 1024px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 15px 20px;
   }
 
-  /* Muestra ícono del menú */
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Menú hamburguesa */
-  .nav-links {
-    display: none;
+  .nav-menu {
+    order: 3;
+    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
-    background: #ffffff;
-    position: absolute;
-    top: 100%;
-    right: 20px;
-    width: 240px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    opacity: 0;
-    transform: translateY(-15px);
-    transition: all 0.3s ease;
-    z-index: 999;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
   }
 
-  .nav-links.active {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .nav-links li {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-
-  .nav-links a {
-    color: #333;
-    width: 100%;
-    display: block;
-    padding: 8px 0;
-  }
-
-  /* Botones móviles (mismo diseño que los de escritorio) */
-  .mobile-only {
-    display: block;
-  }
-
-  .nav-links .btn-login,
-  .nav-links .btn-register {
-    width: 100%;
-    border-radius: 40px;
-    padding: 10px 0;
-    font-weight: bold;
-    border: none;
-  }
-
-  .nav-links .btn-login {
-    background: #f8b547;
-    color: #fff;
-  }
-
-  .nav-links .btn-register {
-    background: #3b8c91;
-    color: #fff;
+  .nav-menu a::after {
+    display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 15px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .nav-menu {
+    gap: 10px;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-login, .btn-register {
+    width: 100%;
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+}
+
 
 
 /* ===============================
@@ -192,20 +175,24 @@ img {
   height: 600px;
   color: #fff;
   text-align: center;
+  z-index: 1;
 }
 
 .hero .overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
+  z-index: 1;
 }
 
 .hero-content {
   position: relative;
-  top: 30%;
-  transform: none;
+  top: 50%;
+  transform: translateY(-50%);
   max-width: 700px;
   margin: 0 auto;
+  padding: 20px;
+  z-index: 2;
 }
 
 .hero h1 {
