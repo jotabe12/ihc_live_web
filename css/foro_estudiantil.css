@@ -59,14 +59,6 @@ body {
     color: #419aa2;
 }
 
-.btn-login {
-    background: #f99f1c;
-}
-
-.btn-register {
-    background: #419aa2;
-}
-
 .nav-buttons button {
     margin-left: 10px;
     padding: 10px 20px;
@@ -76,6 +68,14 @@ body {
     color: #fff;
     font-weight: bold;
     transition: opacity .3s;
+}
+
+.btn-login {
+    background: #f99f1c;
+}
+
+.btn-register {
+    background: #00A7B3;
 }
 
 .nav-buttons button:hover {
