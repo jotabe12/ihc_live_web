@@ -233,6 +233,20 @@ img {
 }
 
 /* ===============================
+   MAIN CONTAINER
+=============================== */
+main {
+  background: linear-gradient(135deg,
+    rgba(249, 159, 28, 0.35) 0%,
+    rgba(255, 182, 77, 0.25) 20%,
+    rgba(255, 200, 120, 0.18) 40%,
+    rgba(255, 220, 170, 0.12) 60%,
+    rgba(255, 182, 77, 0.25) 80%,
+    rgba(249, 159, 28, 0.35) 100%);
+  min-height: 100vh;
+}
+
+/* ===============================
    FEATURES
 =============================== */
 .main-content {
@@ -251,7 +265,8 @@ img {
 }
 
 .card {
-  background: #f7f7f7;
+  background: rgba(247, 247, 247, 0.6);
+  backdrop-filter: blur(8px);
   padding: 25px;
   border-radius: 12px;
   width: 260px;
@@ -274,7 +289,7 @@ img {
 .recommendations {
   padding: 80px 20px;
   text-align: center;
-  background: #fcfcfc;
+  background: transparent;
 }
 
 .btn-catalogo {
@@ -309,7 +324,8 @@ img {
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
 }
 
 .property:hover {
@@ -322,7 +338,7 @@ img {
 =============================== */
 .testimonials {
   padding: 80px 20px;
-  background: #f4f9f9;
+  background: transparent;
   text-align: center;
 }
 
@@ -335,7 +351,8 @@ img {
 }
 
 .testimonial {
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   padding: 30px 25px;
   width: 340px;
@@ -374,7 +391,7 @@ img {
 .community {
   padding: 80px 20px;
   text-align: center;
-  background: #e7f6f7;
+  background: transparent;
 }
 
 .join-form {

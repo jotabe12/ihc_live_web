@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9deb8e85-4829-430b-b9c9-37f5a149f52d" name="Changes" comment="mejoras en el manejo de inicio de sesión y registro">
+    <list default="true" id="9deb8e85-4829-430b-b9c9-37f5a149f52d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/iniciar_sesion.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/iniciar_sesion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/registrar.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/registrar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/iniciar_sesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/iniciar_sesion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/page/registrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/registrar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +119,8 @@
       <workItem from="1762301962017" duration="3325000" />
       <workItem from="1763512801480" duration="5951000" />
       <workItem from="1763519097465" duration="1124000" />
-      <workItem from="1763565131378" duration="1645000" />
+      <workItem from="1763565131378" duration="1892000" />
+      <workItem from="1763571438705" duration="650000" />
     </task>
     <task id="LOCAL-00001" summary="se añadio la pagina de confirmacion de reservas">
       <option name="closed" value="true" />
@@ -188,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763566398263</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="mejoras en el diseño y funcionalidad de los formularios de inicio de sesión y registro">
+      <option name="closed" value="true" />
+      <created>1763567037027</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763567037027</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +219,7 @@
     <MESSAGE value="implementación del sistema de reservas interactivo con botones funcionales para fecha, hora y notificaciones" />
     <MESSAGE value="mejora de estilos para botones de login y registro en varias hojas de estilo" />
     <MESSAGE value="mejoras en el manejo de inicio de sesión y registro" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejoras en el manejo de inicio de sesión y registro" />
+    <MESSAGE value="mejoras en el diseño y funcionalidad de los formularios de inicio de sesión y registro" />
+    <option name="LAST_COMMIT_MESSAGE" value="mejoras en el diseño y funcionalidad de los formularios de inicio de sesión y registro" />
   </component>
 </project>
