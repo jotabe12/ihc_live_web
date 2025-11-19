@@ -16,16 +16,22 @@
         </a>
     </div>
     <nav class="nav-menu">
-        <a href="agendar_visita.html">Mis Reservas</a>
-        <a href="perfil_usuario.html">Perfil</a>
+        <a href="../index.html">Inicio</a>
+        <a href="mapa_seguridad.html">Zonas</a>
+        <a href="foro_estudiantil.html">Comunidad</a>
+        <a href="agendar_visita.html">Contacto</a>
     </nav>
+    <div class="nav-buttons">
+        <button class="btn-login" id="btnLoginDesktop">Iniciar Sesión</button>
+        <button class="btn-register" id="btnRegisterDesktop">Registrarse</button>
+    </div>
 </header>
 
 <!-- Main Content -->
 <main class="main-content">
     <div class="container">
         <!-- Greeting -->
-        <h1 class="greeting">Hola, <strong>Nombre</strong></h1>
+        <h1 class="greeting">Hola, <strong id="greetingName">Nombre</strong></h1>
 
         <!-- Profile Card -->
         <div class="profile-card">
@@ -34,10 +40,10 @@
                     <i class="fas fa-user"></i>
                 </div>
             </div>
-            <h2 class="profile-name">Nombre Completo</h2>
+            <h2 class="profile-name" id="profileName">Nombre Completo</h2>
             <div class="profile-buttons">
-                <button class="btn-profile">Editar perfil</button>
-                <button class="btn-profile">Subir foto</button>
+                <button class="btn-profile" onclick="alert('Funcionalidad de editar perfil próximamente')">Editar perfil</button>
+                <button class="btn-profile" onclick="alert('Funcionalidad de subir foto próximamente')">Subir foto</button>
             </div>
         </div>
 
@@ -119,6 +125,23 @@
         <p>&copy; 2025 ViviEstu. Todos los derechos reservados.</p>
     </div>
 </footer>
+
+<script src="../js/app.js"></script>
+<script>
+// Proteger página - solo accesible con sesión
+SessionManager.protectPage();
+
+// Cargar datos del usuario
+document.addEventListener('DOMContentLoaded', function() {
+    const user = SessionManager.getUser();
+
+    if (user) {
+        // Actualizar nombre en el saludo y perfil
+        document.getElementById('greetingName').textContent = user.nombre;
+        document.getElementById('profileName').textContent = user.nombre;
+    }
+});
+</script>
 </body>
 </html>
 

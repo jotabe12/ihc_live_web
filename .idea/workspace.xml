@@ -5,14 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9deb8e85-4829-430b-b9c9-37f5a149f52d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/css/iniciar_sesion.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/page/iniciar_sesion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/foro_estudiantil.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/foro_estudiantil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/mapa_seguridad.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/mapa_seguridad.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FINALIZACION.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SISTEMA_SESION_README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TESTING_GUIDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_11_2025_09_26_p_ m__[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/agendar_visita.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/agendar_visita.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/perfil_usuario.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/perfil_usuario.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/agendar_visita.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/agendar_visita.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/catalogo.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/catalogo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/foro_estudiantil.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/foro_estudiantil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page/iniciar_sesion.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/iniciar_sesion.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/mapa_seguridad.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/mapa_seguridad.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/perfil_usuario.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/perfil_usuario.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/page/registrar.html" beforeDir="false" afterPath="$PROJECT_DIR$/page/registrar.html" afterDir="false" />
@@ -37,6 +42,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -46,7 +52,7 @@
 }</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/JOACODS22/Grupo-5-IHC",
+    "url": "https://github.com/JOACODS22/Grupo-5-IHC.git",
     "accountId": "6dfe1ef5-b3ec-49aa-a828-a5bddac11f57"
   },
   "recentNewPullRequestHead": {
@@ -72,12 +78,14 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "JavaScript Debug.agendar_visita.html.executor": "Debug",
+    "JavaScript Debug.catalogo.html.executor": "Debug",
     "JavaScript Debug.foro_estudiantil.html.executor": "Debug",
     "JavaScript Debug.index.html.executor": "Debug",
     "JavaScript Debug.mapa_seguridad.html.executor": "Debug",
     "JavaScript Debug.perfil_usuario.html.executor": "Debug",
     "JavaScript Debug.registrar.html.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
@@ -120,6 +128,7 @@
       <workItem from="1762299443127" duration="322000" />
       <workItem from="1762300135518" duration="851000" />
       <workItem from="1762301962017" duration="3325000" />
+      <workItem from="1763512801480" duration="1551000" />
     </task>
     <task id="LOCAL-00001" summary="se añadio la pagina de confirmacion de reservas">
       <option name="closed" value="true" />
