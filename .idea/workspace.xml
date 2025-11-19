@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9deb8e85-4829-430b-b9c9-37f5a149f52d" name="Changes" comment="mejora del header en todas las paginas" />
+    <list default="true" id="9deb8e85-4829-430b-b9c9-37f5a149f52d" name="Changes" comment="corrección de contenido duplicado en agendar_visita.html" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +111,7 @@
       <workItem from="1762299443127" duration="322000" />
       <workItem from="1762300135518" duration="851000" />
       <workItem from="1762301962017" duration="3325000" />
-      <workItem from="1763512801480" duration="3211000" />
+      <workItem from="1763512801480" duration="3508000" />
     </task>
     <task id="LOCAL-00001" summary="se añadio la pagina de confirmacion de reservas">
       <option name="closed" value="true" />
@@ -137,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1763515960246</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="corrección de contenido duplicado en agendar_visita.html">
+      <option name="closed" value="true" />
+      <created>1763516362506</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763516362506</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +166,7 @@
     <MESSAGE value="se añadio la pagina de confirmacion de reservas" />
     <MESSAGE value="union del login con el perfil" />
     <MESSAGE value="mejora del header en todas las paginas" />
-    <option name="LAST_COMMIT_MESSAGE" value="mejora del header en todas las paginas" />
+    <MESSAGE value="corrección de contenido duplicado en agendar_visita.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="corrección de contenido duplicado en agendar_visita.html" />
   </component>
 </project>
