@@ -3,141 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Encuentra la zona ideal para vivir con ViviEstu. Compara zonas, costos y reseñas verificadas para estudiantes.">
   <title>ViviEstu</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <nav class="navbar">
-    <div class="logo">
-      <a href="index.html">
-        <img src="asset/Logo.png" alt="Logo ViviEstu">
-      </a>
-    </div>
-    <ul>
-      <li><a href="page/mapa_seguridad.html">Zonas</a></li>
-      <li><a href="page/mapa_seguridad.html">Comparador</a></li>
-      <li><a href="page/foro_estudiantil.html">Comunidad</a></li>
-      <li><a href="#">Contacto</a></li>
-    </ul>
-    <div class="nav-buttons">
-      <button class="btn-login" onclick="window.location.href='page/iniciar_sesion.html'">Iniciar Sesión</button>
-      <button class="btn-register" onclick="window.location.href='page/registrar.html'">Registrarse</button>
-    </div>
-  </nav>
 
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1>Encuentra la zona ideal para vivir</h1>
-      <p>Toma decisiones rápidas y seguras con datos verificados.</p>
-      <form class="search-bar">
-        <input type="text" placeholder="Ingresa ubicaciones o características">
-        <button type="submit">Buscar</button>
-      </form>
-    </div>
-  </section>
+<!-- NAVIGATION -->
+<nav class="navbar">
+  <div class="logo">
+    <img src="https://placehold.co/60x60" alt="Logo ViviEstu">
+    <span>ViviEstu</span>
+  </div>
 
+  <!-- Menú principal -->
+  <ul class="nav-links">
+    <li><a href="..index.html">Inicio</a></li>
+    <li><a href="#">Zonas</a></li>
+    <li><a href="page/mapa_seguridad.html">Comparador</a></li>
+    <li><a href="page/foro_estudiantil.html">Comunidad</a></li>
+    <li><a href="page/agendar_visita.html">Contacto</a></li>
+
+    <!-- MOBILE -->
+    <li class="mobile-only"><button class="btn-login" id="btnLogin">Iniciar Sesión</button></li>
+    <li class="mobile-only"><button class="btn-register" id="btnRegister">Registrarse</button></li>
+  </ul>
+
+  <!-- DESKTOP -->
+  <div class="nav-buttons desktop-only">
+    <span id="saludoUsuario" style="display:none; color:#fff; margin-right:15px; font-weight:600;"></span>
+
+    <button class="btn-login" id="btnLoginDesktop">Iniciar Sesión</button>
+    <button class="btn-register" id="btnRegisterDesktop">Registrarse</button>
+
+    <button id="btnCerrarSesion" style="display:none;">Cerrar sesión</button>
+  </div>
+
+  <div class="menu-toggle" id="menu-toggle">☰</div>
+</nav>
+
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <h1>Encuentra la zona ideal para vivir</h1>
+    <p>Descubre dónde vivir mejor con datos claros y reales.</p>
+    <form class="search-bar">
+      <input type="text" placeholder="Ingresa una zona o característica">
+      <button type="submit">Buscar</button>
+    </form>
+  </div>
+</section>
+
+
+<!-- CONTENIDO -->
+<main>
   <section class="main-content">
     <h2>¿Cómo te ayuda ViviEstu?</h2>
     <div class="features">
-      <div class="card" onclick="window.location.href='page/mapa_seguridad.html'" style="cursor: pointer;">
-        <img src="https://placehold.co/100x100" alt="">
-        <h3>Compara zonas</h3>
-        <p>Precio, seguridad y transporte</p>
-      </div>
+
       <div class="card">
-        <img src="https://placehold.co/100x100" alt="">
+        <img src="https://placehold.co/100x100" alt="Comparar zonas">
+        <h3>Compara zonas</h3>
+        <p>Analiza precios, seguridad y transporte antes de decidir.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://placehold.co/100x100" alt="Simula costos">
         <h3>Simula tu costo mensual</h3>
-        <p>Alquiler + transporte</p>
+        <p>Calcula alquiler, transporte y gastos básicos.</p>
       </div>
-      <div class="card" onclick="window.location.href='page/mapa_seguridad.html'" style="cursor: pointer;">
-        <img src="https://placehold.co/100x100" alt="">
+
+      <div class="card">
+        <img src="https://placehold.co/100x100" alt="Mapas con reseñas">
         <h3>Simula mapas</h3>
-        <p>Con reseñas verificadas</p>
+        <p>Explora reseñas y opiniones verificadas de estudiantes.</p>
       </div>
+
     </div>
   </section>
 
+
+  <!-- VIVIENDAS DESTACADAS -->
   <section class="recommendations">
     <h2>Viviendas Destacadas</h2>
+
     <div class="property-grid">
       <div class="property">
-        <img src="https://placehold.co/300x200" alt="">
+        <img src="https://placehold.co/300x200" alt="Vivienda en San Borja">
         <h3>San Borja – Zona Residencial Segura</h3>
-        <p>Venta desde S/ 1 180 000</p>
+        <p>Desde S/ 1 180 000</p>
       </div>
+
       <div class="property">
-        <img src="https://placehold.co/300x200" alt="">
+        <img src="https://placehold.co/300x200" alt="Vivienda en Surco">
         <h3>Surco – Cerca a Universidades</h3>
-        <p>Venta desde S/ 843 150</p>
+        <p>Desde S/ 843 150</p>
       </div>
+
       <div class="property">
-        <img src="https://placehold.co/300x200" alt="">
+        <img src="https://placehold.co/300x200" alt="Vivienda en San Isidro">
         <h3>San Isidro – Zona Premium Segura</h3>
-        <p>Venta desde S/ 546 460</p>
+        <p>Desde S/ 546 460</p>
       </div>
     </div>
+
+    <a href="page/catalogo.html" class="btn-catalogo">Ver catálogo</a>
   </section>
 
+
+  <!-- TESTIMONIOS -->
   <section class="testimonials">
-    <h2>Lo Que Dicen Otros Estudiantes</h2>
+    <h2>Lo que dicen otros estudiantes</h2>
     <div class="testimonial-grid">
       <div class="testimonial">
         <p>“Gracias a ViviEstu encontré una vivienda segura y económica cerca de mi universidad.”</p>
         <div class="user">
-          <img src="https://placehold.co/60x60" alt="">
-          <div>
-            <strong>Carla Ramos</strong><br>
-            <small>Estudiante de Arquitectura</small>
-          </div>
+          <img src="https://placehold.co/60x60">
+          <div><strong>Carla Ramos</strong><br><small>Arquitectura</small></div>
         </div>
       </div>
+
       <div class="testimonial">
-        <p>“El comparador de zonas fue muy útil para encontrar el lugar ideal.”</p>
+        <p>“El comparador de zonas fue clave para encontrar el lugar ideal.”</p>
         <div class="user">
-          <img src="https://placehold.co/60x60" alt="">
-          <div>
-            <strong>Lucía Huamán</strong><br>
-            <small>Estudiante de Administración</small>
-          </div>
+          <img src="https://placehold.co/60x60">
+          <div><strong>Lucía Huamán</strong><br><small>Administración</small></div>
         </div>
       </div>
     </div>
   </section>
 
+
+  <!-- COMUNIDAD -->
   <section class="community">
-    <h2>Sé Parte De ViviEstu</h2>
+    <h2>Únete a ViviEstu</h2>
+    <p>Recibe consejos y datos exclusivos sobre las mejores zonas para vivir.</p>
     <form class="join-form">
       <input type="email" placeholder="Tu correo institucional aquí">
-      <button>Unirme a ViviEstu</button>
+      <button>Unirme</button>
     </form>
   </section>
+</main>
 
-  <footer class="footer">
-    <div class="footer-cols">
-      <div>
-        <h3>Explorar</h3>
-        <ul>
-          <li><a href="#">Zonas Cercanas</a></li>
-          <li><a href="page/mapa_seguridad.html">Comparador</a></li>
-          <li><a href="#">Viviendas</a></li>
-          <li><a href="page/perfil_usuario.html">Ver mi perfil</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Sobre Nosotros</h3>
-        <ul>
-          <li><a href="#">Quiénes Somos</a></li>
-          <li><a href="#">Misión y Visión</a></li>
-          <li><a href="#">Equipo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Contacto</h3>
-        <p>Lima Metropolitana, Perú<br>(01) 345-9823<br>contacto@viviestu.pe</p>
-      </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-cols">
+
+    <div class="footer-col">
+      <h3>Explorar</h3>
+      <ul>
+        <li><a href="#">Zonas Cercanas</a></li>
+        <li><a href="#">Comparador</a></li>
+        <li><a href="#">Viviendas</a></li>
+      </ul>
     </div>
-    <p class="footer-copy">© 2025 ViviEstu. Todos los derechos reservados.</p>
-  </footer>
+
+    <div class="footer-col">
+      <h3>Sobre Nosotros</h3>
+      <ul>
+        <li><a href="#">Quiénes Somos</a></li>
+        <li><a href="#">Misión y Visión</a></li>
+        <li><a href="#">Equipo</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Contacto</h3>
+      <p>
+        Lima Metropolitana, Perú<br>
+        (01) 345-9823<br>
+        contacto@viviestu.pe
+      </p>
+    </div>
+
+  </div>
+
+  <p class="footer-copy">© 2025 ViviEstu. Todos los derechos reservados.</p>
+</footer>
+
+
+
+
+<!-- ===================== -->
+<!--       JAVASCRIPT      -->
+<!-- ===================== -->
+<script>
+  // Menú hamburguesa
+  const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+
+  // LOCAL STORAGE + DOM
+  const saludo = document.getElementById("saludoUsuario");
+  const btnCerrar = document.getElementById("btnCerrarSesion");
+
+  const btnLogin = document.getElementById("btnLogin");
+  const btnRegister = document.getElementById("btnRegister");
+  const btnLoginDesk = document.getElementById("btnLoginDesktop");
+  const btnRegisterDesk = document.getElementById("btnRegisterDesktop");
+
+  // RUTAS CORRECTAS
+  btnLogin.onclick        = () => window.location.href = "page/iniciar_sesion.html";
+  btnRegister.onclick     = () => window.location.href = "page/registrar.html";
+  btnLoginDesk.onclick    = () => window.location.href = "page/iniciar_sesion.html";
+  btnRegisterDesk.onclick = () => window.location.href = "page/registrar.html";
+
+  // Cargar usuario
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  const sesionActiva = localStorage.getItem("sesionActiva");
+
+  if (usuario && sesionActiva === "true") {
+    saludo.textContent = `Hola, ${usuario.nombre}`;
+    saludo.style.display = "inline";
+
+    btnCerrar.style.display = "inline-block";
+
+    btnLogin.style.display = "none";
+    btnRegister.style.display = "none";
+    btnLoginDesk.style.display = "none";
+    btnRegisterDesk.style.display = "none";
+  }
+
+  // Cerrar sesión
+  btnCerrar.addEventListener("click", () => {
+    localStorage.removeItem("sesionActiva");
+    localStorage.removeItem("usuarioActivo");
+    window.location.reload();
+  });
+</script>
+
 </body>
 </html>
