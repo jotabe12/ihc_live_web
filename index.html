@@ -21,7 +21,7 @@
   <nav class="nav-menu">
     <a href="index.html">Inicio</a>
     <a href="page/mapa_seguridad.html">Zonas</a>
-    <a href="page/catalogo.html">Comparador</a>
+    <a href="page/catalogo.html">Catálogo</a>
     <a href="page/foro_estudiantil.html">Comunidad</a>
     <a href="page/agendar_visita.html">Contacto</a>
   </nav>
@@ -31,21 +31,32 @@
   </div>
 </header>
 
-
-
 <!-- HERO -->
 <section class="hero">
   <div class="overlay"></div>
   <div class="hero-content">
     <h1>Encuentra la zona ideal para vivir</h1>
     <p>Descubre dónde vivir mejor con datos claros y reales.</p>
-    <form class="search-bar">
-      <input type="text" placeholder="Ingresa una zona o característica">
-      <button type="submit">Buscar</button>
+
+    <!-- BUSCADOR CON AUTOCOMPLETE -->
+        <form id="searchForm" autocomplete="off">
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Ingresa una zona o característica">
+          <button type="submit">Buscar</button>
+        </div>
+
+        <!-- Dropdown -->
+        <ul class="suggestions" id="suggestionsList">
+          <li>Arequipa</li>
+          <li>San Isidro</li>
+          <li>Surco</li>
+          <li>Miraflores</li>
+        </ul>
+      </div>
     </form>
   </div>
 </section>
-
 
 <!-- CONTENIDO -->
 <main>
@@ -53,55 +64,58 @@
     <h2>¿Cómo te ayuda ViviEstu?</h2>
     <div class="features">
 
+      <a href="page/mapa_seguridad.html" class="card card-link">
+        <img src="asset/mapa_seguridad.jpg" alt="Comparar zonas">
+        <h3>Zonas</h3>
+        <p>Busca tu hogar y cuida tu seguridad.</p>
+      </a>
+
       <a href="page/catalogo.html" class="card card-link">
-        <img src="https://placehold.co/100x100" alt="Comparar zonas">
-        <h3>Compara zonas</h3>
-        <p>Analiza precios, seguridad y transporte antes de decidir.</p>
+        <img src="asset/catalogo.jpg" alt="Catálogo">
+        <h3>Catálogo</h3>
+        <p>Descubre nuestra selección de viviendas diseñadas para adaptarse a tu vida universitaria.</p>
       </a>
 
       <a href="page/agendar_visita.html" class="card card-link">
-        <img src="https://placehold.co/100x100" alt="Simula costos">
-        <h3>Simula tu costo mensual</h3>
-        <p>Calcula alquiler, transporte y gastos básicos.</p>
-      </a>
-
-      <a href="page/mapa_seguridad.html" class="card card-link">
-        <img src="https://placehold.co/100x100" alt="Mapas con reseñas">
-        <h3>Simula mapas</h3>
+        <img src="asset/agendar.png" alt="Reservas">
+        <h3>Agenda tu visita</h3>
         <p>Explora reseñas y opiniones verificadas de estudiantes.</p>
       </a>
 
     </div>
   </section>
 
-
   <!-- VIVIENDAS DESTACADAS -->
   <section class="recommendations">
     <h2>Viviendas Destacadas</h2>
 
     <div class="property-grid">
-      <div class="property">
-        <img src="https://placehold.co/300x200" alt="Vivienda en San Borja">
+
+      <!-- SAN BORJA -->
+      <div class="property" onclick="location.href='page/catalogo.html?zona=san borja'">
+        <img src="asset/dept_SanBorja.jpg" alt="Vivienda en San Borja">
         <h3>San Borja – Zona Residencial Segura</h3>
         <p>Desde S/ 1 180 000</p>
       </div>
 
-      <div class="property">
-        <img src="https://placehold.co/300x200" alt="Vivienda en Surco">
+      <!-- SURCO -->
+      <div class="property" onclick="location.href='page/catalogo.html?zona=surco'">
+        <img src="asset/dept_Surco.jpg" alt="Vivienda en Surco">
         <h3>Surco – Cerca a Universidades</h3>
         <p>Desde S/ 843 150</p>
       </div>
 
-      <div class="property">
-        <img src="https://placehold.co/300x200" alt="Vivienda en San Isidro">
+      <!-- SAN ISIDRO -->
+      <div class="property" onclick="location.href='page/catalogo.html?zona=san isidro'">
+        <img src="asset/dept_SanIsidro.jpeg" alt="Vivienda en San Isidro">
         <h3>San Isidro – Zona Premium Segura</h3>
         <p>Desde S/ 546 460</p>
       </div>
+
     </div>
 
     <a href="page/catalogo.html" class="btn-catalogo">Ver catálogo</a>
   </section>
-
 
   <!-- TESTIMONIOS -->
   <section class="testimonials">
@@ -110,7 +124,7 @@
       <div class="testimonial">
         <p>“Gracias a ViviEstu encontré una vivienda segura y económica cerca de mi universidad.”</p>
         <div class="user">
-          <img src="https://placehold.co/60x60">
+          <img src="asset/estudiante_hombre.jpg" alt="Foto de usuario">
           <div><strong>Carla Ramos</strong><br><small>Arquitectura</small></div>
         </div>
       </div>
@@ -118,13 +132,12 @@
       <div class="testimonial">
         <p>“El comparador de zonas fue clave para encontrar el lugar ideal.”</p>
         <div class="user">
-          <img src="https://placehold.co/60x60">
+          <img src="asset/estudiante_mujer.jpg" alt="Foto de usuario">
           <div><strong>Lucía Huamán</strong><br><small>Administración</small></div>
         </div>
       </div>
     </div>
   </section>
-
 
   <!-- COMUNIDAD -->
   <section class="community">
@@ -136,7 +149,6 @@
     </form>
   </section>
 </main>
-
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -174,12 +186,6 @@
   <p class="footer-copy">© 2025 ViviEstu. Todos los derechos reservados.</p>
 </footer>
 
-
-
-
-<!-- ===================== -->
-<!--       JAVASCRIPT      -->
-<!-- ===================== -->
 <script src="js/app.js"></script>
 
 </body>

@@ -10,11 +10,11 @@ body {
 }
 
 /* ===============================
-   ENCABEZADO
+   ENCABEZADO CATÁLOGO
 =============================== */
 .catalogo-header {
   text-align: center;
-  padding: 60px 20px 30px;
+  padding: 60px 20px 40px;
   background: #e7f6f7;
   color: #3b8c91;
 }
@@ -27,57 +27,186 @@ body {
 .catalogo-header p {
   font-size: 18px;
   color: #555;
+  margin: 0;
 }
 
 /* ===============================
-   TARJETAS DEL CATÁLOGO
+   BUSCADOR DEL CATÁLOGO
 =============================== */
-.catalogo-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 40px;
-  padding: 40px 20px;
+.catalogo-search-bar {
+  margin: 25px auto 10px;
+  display: inline-flex;
+  border-radius: 50px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.card {
-  background: #fff;
+.catalogo-search-bar input {
+  border: none;
+  padding: 12px 18px;
+  width: 320px;
+  font-size: 15px;
+  outline: none;
+}
+
+.catalogo-search-bar button {
+  background: #3b8c91;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.catalogo-search-bar button:hover {
+  background: #347a7e;
+}
+
+/* Sugerencias debajo del buscador */
+.catalogo-suggestions {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 420px;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  display: none;
+}
+
+.catalogo-suggestions li {
+  padding: 10px 16px;
+  border-top: 1px solid #f0f0f0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.catalogo-suggestions li:hover {
+  background: #f3fafb;
+}
+
+/* ===============================
+   LISTA VERTICAL DE PROPIEDADES
+=============================== */
+.catalogo-list-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px 60px;
+}
+
+.catalogo-list-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2f7f83;
+}
+
+.catalogo-empty {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 25px;
+  color: #777;
+  font-size: 14px;
+}
+
+.catalogo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Tarjeta de propiedad en vista vertical */
+.property-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;         /* Evita que el contenido quede aplastado */
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 280px;
-  transition: all 0.3s ease;
+  
+  overflow: visible !important;    /* Permite que el contenido crezca */
+  padding: 15px;                   /* Espacio interno */
+  
+  height: auto !important;         /* Crece según su contenido */
+  min-height: 180px;               /* Altura mínima */
+  
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
 }
 
-.card img {
-  width: 100%;
-  height: 200px;
+.property-card img {
+  width: 260px;
+  height: 180px;
   object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 10px;             /* Se ve más elegante */
 }
 
-.card-info {
-  padding: 20px;
+.property-card .info {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;                    /* Ocupa todo el espacio disponible */
+  height: auto;                    /* Permite crecer */
 }
 
-.card-info h3 {
+.property-card .info h3 {
   color: #3b8c91;
-  margin-bottom: 8px;
+  margin: 0;
+  font-size: 18px;
 }
 
-.card-info p {
+.property-card .info p {
+  margin: 0;
   font-size: 14px;
   color: #555;
-  margin-bottom: 12px;
 }
 
-.card-info span {
+.property-card .info span {
   font-weight: bold;
   color: #f8b547;
+  margin-top: 4px;
+}
+
+/* ===============================
+   PAGINACIÓN
+=============================== */
+.catalogo-pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination-btn {
+  min-width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: #e0f0f0;
+  color: #2f7f83;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pagination-btn:hover {
+  background: #3b8c91;
+  color: #ffffff;
+}
+
+.pagination-btn.active {
+  background: #3b8c91;
+  color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(59, 140, 145, 0.25);
 }
 
 /* ===============================
@@ -102,7 +231,7 @@ body {
 }
 
 .recomendacion {
-  background: #fff;
+  background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   padding: 20px;
@@ -131,54 +260,6 @@ body {
   color: #555;
 }
 
-/* ===============================
-   FOOTER
-=============================== */
-.footer {
-  text-align: center;
-  padding: 40px;
-  background: #fff;
-}
-
-.btn-volver {
-  display: inline-block;
-  background: #3b8c91;
-  color: #fff;
-  padding: 12px 28px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-volver:hover {
-  background: #347a7e;
-  transform: translateY(-2px);
-}
-
-/* ===============================
-   RESPONSIVE
-=============================== */
-@media (max-width: 768px) {
-  .catalogo-header h1 {
-    font-size: 36px;
-  }
-
-  .catalogo-grid {
-    gap: 25px;
-  }
-
-  .card {
-    width: 90%;
-    max-width: 350px;
-  }
-
-  .recomendacion {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
 .ver-lugar {
   display: inline-block;
   margin-top: 8px;
@@ -195,158 +276,56 @@ body {
 }
 
 /* ===============================
-   VIVIENDAS DESTACADAS (CON SCROLL)
+   RESPONSIVE
 =============================== */
-
-.catalogo-carousel {
-  text-align: center;
-  padding: 60px 20px;
-  background: #f8fbfb;
-}
-
-.catalogo-carousel h2 {
-  font-size: 24px;
-  color: #2f7f83;
-  margin-bottom: 25px;
-  font-weight: 700;
-}
-
-/* Contenedor que permite el scroll horizontal */
-.carousel-container {
-  overflow-x: auto;        /* ✅ Scroll horizontal */
-  overflow-y: hidden;      /* 🚫 Nada vertical */
-  white-space: nowrap;     /* ✅ Evita salto de línea */
-  scroll-behavior: smooth;
-  margin: 0 auto;
-  padding: 10px 0 20px;
-  max-width: 95%;
-  display: block;          /* 🔥 Fuerza bloque horizontal */
-}
-
-/* Personalización del scroll */
-.carousel-container::-webkit-scrollbar {
-  height: 10px; /* ✅ ahora es horizontal */
-}
-
-.carousel-container::-webkit-scrollbar-track {
-  background: #e0f0f0;
-  border-radius: 10px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb {
-  background: #3b8c91;
-  border-radius: 10px;
-}
-
-.carousel-container::-webkit-scrollbar-thumb:hover {
-  background: #2f6e72;
-}
-
-/* Fila de tarjetas en horizontal */
-.carousel-track {
-  display: inline-flex; /* ✅ no hace salto de línea */
-  gap: 25px;
-}
-
-/* Tarjetas */
-.property-card {
-  flex: 0 0 auto;
-  width: 280px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-decoration: none;
-  color: inherit;
-}
-
-.property-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.property-card img {
-  width: 100%;
-  height: 200px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  object-fit: cover;
-}
-
-.property-card .info {
-  padding: 15px;
-  text-align: left;
-}
-
-.property-card .info h3 {
-  color: #3b8c91;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.property-card .info p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 8px;
-  white-space: normal;      /* ✅ Permite salto de línea */
-  word-wrap: break-word;    /* ✅ Corta palabras largas */
-  overflow-wrap: break-word; /* ✅ Compatibilidad moderna */
-}
-
-.property-card .info span {
-  font-weight: bold;
-  color: #f8b547;
-}
-
-/* TARJETAS */
-.property-card {
-  flex: 0 0 auto;
-  width: 280px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.property-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-}
-
-.property-card img {
-  width: 100%;
-  height: 200px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  object-fit: cover;
-}
-
-.property-card .info {
-  padding: 15px;
-  text-align: left;
-}
-
-.property-card .info h3 {
-  color: #3b8c91;
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.property-card .info p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-.property-card .info span {
-  font-weight: bold;
-  color: #f8b547;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .property-card {
-    width: 240px;
+    flex-direction: column;
   }
+
+  .property-card img {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .catalogo-header h1 {
+    font-size: 36px;
+  }
+
+  .catalogo-search-bar {
+    width: 90%;
+  }
+
+  .catalogo-search-bar input {
+    width: 100%;
+  }
+
+  .recomendacion {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.features {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #3b8c91;
+  background: #eef9f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.feature i {
+  color: #3b8c91;
 }

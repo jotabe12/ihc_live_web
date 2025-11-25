@@ -24,7 +24,7 @@
   <nav class="nav-menu">
     <a href="../index.html">Inicio</a>
     <a href="mapa_seguridad.html">Zonas</a>
-    <a href="catalogo.html">Comparador</a>
+    <a href="catalogo.html">Catálogo</a>
     <a href="foro_estudiantil.html">Comunidad</a>
     <a href="agendar_visita.html">Contacto</a>
   </nav>
@@ -34,140 +34,542 @@
   </div>
 </header>
 
-
 <header class="catalogo-header">
   <h1>Catálogo</h1>
   <p>Explora las viviendas recomendadas para ti</p>
+
+  <!-- Buscador dentro del catálogo -->
+<form id="catalogoSearchForm" class="catalogo-search-bar" autocomplete="off">
+  <input 
+    type="text" 
+    id="catalogoSearchInput" 
+    placeholder="Buscar zona o característica…" 
+    autocomplete="off"
+    autocorrect="off"
+    autocapitalize="off"
+    spellcheck="false">
+  <button type="submit">Buscar</button>
+</form>
+
+  <!-- Sugerencias del buscador -->
+  <ul id="catalogoSuggestionsList" class="catalogo-suggestions"></ul>
 </header>
 
-<!-- CARRUSEL -->
-<section class="catalogo-carousel">
-  <h2>Viviendas Destacadas</h2>
+<!-- LISTA VERTICAL -->
+<section class="catalogo-list-section">
+  <h2>Viviendas disponibles</h2>
 
-  <div class="carousel-container">
-    <div class="carousel-track">
+  <p id="catalogoEmpty" class="catalogo-empty" style="display:none;">
+    No se encontraron viviendas para tu búsqueda. Prueba con otra zona.
+  </p>
 
-      <!-- Tus propiedades (no las toco) -->
-      <div class="property-card">
-        <img src="https://placehold.co/300x200">
-        <div class="info">
-          <h3>Departamento en Miraflores</h3>
-          <p>Vista al mar, amoblado y cerca de universidades.</p>
-          <span>Desde S/ 950 000</span>
-        </div>
-      </div>
+  <div id="catalogoList" class="catalogo-list">
 
-      <div class="property-card">
-        <img src="https://placehold.co/300x200">
-        <div class="info">
-          <h3>San Borja Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
+    <!-- 12 PROPIEDADES -->
+    <!-- 1 -->
+    <article class="property-card"
+      data-zona="surco"
+      data-habitaciones="2"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Cerca a universidades"
+      data-rating="5.0"
+      data-desc="Acogedor departamento de 2 dormitorios ubicado en Surco, cerca de universidades y centros comerciales. Ideal para estudiantes."
+      data-precio="890000"
+      data-imagen="../asset/dept_Surco.jpg">
 
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>San Miguel Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>Surquillo Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>Santa Anita Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>San Juan de Miraflores Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>San Isidro Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>Callao Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>Lurin Residencial</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 780 000</span>
-        </div>
-      </div>
-
-            <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Borja Residencial">
-        <div class="info">
-          <h3>Villa el Salvador</h3>
-          <p>Zona tranquila, ideal para estudiantes.</p>
-          <span>Desde S/ 7000</span>
-        </div>
-      </div>
-
-      <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="Surco Moderno">
-        <div class="info">
-          <h3>Surco Moderno</h3>
-          <p>Cerca de centros comerciales y transporte.</p>
+      <img src="../asset/dept_Surco.jpg">
+      <div class="info">
+          <h3>Departamento moderno en Surco</h3>
+          <p>Departamento de 2 habitaciones cerca a universidades.</p>
           <span>Desde S/ 890 000</span>
-        </div>
       </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
 
-      <div class="property-card">
-        <img src="https://placehold.co/300x200" alt="San Isidro Premium">
-        <div class="info">
-          <h3>San Isidro Premium</h3>
-          <p>Zona segura y con áreas verdes.</p>
-          <span>Desde S/ 1 200 000</span>
-        </div>
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 2 -->
+    <article class="property-card"
+      data-zona="surco"
+      data-habitaciones="1"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Av. Benavides"
+      data-rating="4.6"
+      data-desc="Mini estudio cómodo, amoblado y con todos los servicios incluidos. Ideal para estudiantes."
+      data-precio="520000"
+      data-imagen="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Mini estudio en Surco</h3>
+          <p>Ambiente único ideal para estudiantes.</p>
+          <span>Desde S/ 520 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 3 -->
+    <article class="property-card"
+      data-zona="monterrico"
+      data-habitaciones="3"
+      data-banos="2"
+      data-wifi="Sí"
+      data-cercania="Cerca de UPC"
+      data-rating="4.8"
+      data-desc="Amplio departamento ubicado en Monterrico, con excelente iluminación y conectividad perfecta para universitarios."
+      data-precio="1050000"
+      data-imagen="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Dpto en Monterrico</h3>
+          <p>Cerca de UPC y ESAN, excelente conectividad.</p>
+          <span>Desde S/ 1 050 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 4 -->
+    <article class="property-card"
+      data-zona="monterrico"
+      data-habitaciones="1"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Cerca de ESAN"
+      data-rating="4.2"
+      data-desc="Cuarto independiente con baño propio y servicios incluidos. A pocas cuadras de zonas comerciales."
+      data-precio="1200"
+      data-imagen="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Cuarto independiente en Monterrico</h3>
+          <p>Incluye servicios y wifi.</p>
+          <span>Desde S/ 1 200 / mes</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 5 -->
+    <article class="property-card"
+      data-zona="san borja"
+      data-habitaciones="3"
+      data-banos="2"
+      data-wifi="Sí"
+      data-cercania="Zona residencial"
+      data-rating="4.9"
+      data-desc="Departamento amplio y familiar en San Borja, zona segura y con parques cercanos."
+      data-precio="980000"
+      data-imagen="../asset/dept_SanBorja.jpg">
+
+      <img src="../asset/dept_SanBorja.jpg">
+      <div class="info">
+          <h3>Dpto familiar en San Borja</h3>
+          <p>Zona residencial muy segura.</p>
+          <span>Desde S/ 980 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 6 -->
+    <article class="property-card"
+      data-zona="jesus maria"
+      data-habitaciones="1"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Avenida Cuba"
+      data-rating="4.4"
+      data-desc="Habitación cómoda ubicada cerca de avenidas principales y centros comerciales."
+      data-precio="900"
+      data-imagen="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Habitación en Jesús María</h3>
+          <p>A media cuadra de avenida principal.</p>
+          <span>Desde S/ 900 / mes</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 7 -->
+    <article class="property-card"
+      data-zona="san miguel"
+      data-habitaciones="2"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Costa Verde"
+      data-rating="4.7"
+      data-desc="Moderno loft con vista al mar, excelente ambiente y acceso rápido a la Costa Verde."
+      data-precio="760000"
+      data-imagen="https://images.unsplash.com/photo-1499914485622-a88fac536970?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1499914485622-a88fac536970?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Loft vista al mar en San Miguel</h3>
+          <p>Cerca a la Costa Verde.</p>
+          <span>Desde S/ 760 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 8 -->
+    <article class="property-card"
+      data-zona="san miguel"
+      data-habitaciones="2"
+      data-banos="2"
+      data-wifi="Sí"
+      data-cercania="Plaza San Miguel"
+      data-rating="4.5"
+      data-desc="Departamento moderno con 2 dormitorios y cochera, cerca a centros comerciales."
+      data-precio="690000"
+      data-imagen="../asset/dept_SanMiguel.jpg">
+
+      <img src="../asset/dept_SanMiguel.jpg">
+      <div class="info">
+          <h3>Dpto cerca a Plaza San Miguel</h3>
+          <p>2 dormitorios y cochera.</p>
+          <span>Desde S/ 690 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 9 -->
+    <article class="property-card"
+      data-zona="san isidro"
+      data-habitaciones="3"
+      data-banos="2"
+      data-wifi="Sí"
+      data-cercania="Zona empresarial"
+      data-rating="5.0"
+      data-desc="Departamento premium en San Isidro con áreas verdes, seguridad y acabados de lujo."
+      data-precio="1350000"
+      data-imagen="../asset/dept_SanIsidro.jpeg">
+
+      <img src="../asset/dept_SanIsidro.jpeg">
+      <div class="info">
+          <h3>Dpto premium en San Isidro</h3>
+          <p>Vigilancia 24/7 y áreas verdes.</p>
+          <span>Desde S/ 1 350 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 10 -->
+    <article class="property-card"
+      data-zona="san isidro"
+      data-habitaciones="1"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Calle Miguel Dasso"
+      data-rating="4.3"
+      data-desc="Cuarto independiente en San Isidro con servicios incluidos."
+      data-precio="1400"
+      data-imagen="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Cuarto en San Isidro</h3>
+          <p>Servicios incluidos.</p>
+          <span>Desde S/ 1 400 / mes</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 11 -->
+    <article class="property-card"
+      data-zona="surquillo"
+      data-habitaciones="2"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Mercado principal"
+      data-rating="4.1"
+      data-desc="Departamento funcional en Surquillo, con mercados y parques cercanos."
+      data-precio="640000"
+      data-imagen="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Dpto funcional en Surquillo</h3>
+          <p>Buena conectividad y mercados cercanos.</p>
+          <span>Desde S/ 640 000</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
+    </div>
+</div>
+    </article>
+
+    <!-- 12 -->
+    <article class="property-card"
+      data-zona="surquillo"
+      data-habitaciones="1"
+      data-banos="1"
+      data-wifi="Sí"
+      data-cercania="Parque central"
+      data-rating="4.0"
+      data-desc="Estudio amoblado en Surquillo, listo para mudarse inmediatamente."
+      data-precio="1100"
+      data-imagen="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80">
+
+      <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?auto=format&fit=crop&w=900&q=80">
+      <div class="info">
+          <h3>Estudio amoblado en Surquillo</h3>
+          <p>Listo para mudarse.</p>
+          <span>Desde S/ 1 100 / mes</span>
+      </div>
+      <div class="features">
+    <div class="feature">
+        <i class="fa-solid fa-bed"></i>
+        <span class="feat-habit"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-bath"></i>
+        <span class="feat-banos"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-wifi"></i>
+        <span class="feat-wifi"></span>
+    </div>
+
+    <div class="feature">
+        <i class="fa-solid fa-map-marker-alt"></i>
+        <span class="feat-cerca"></span>
       </div>
     </div>
+    </article>
   </div>
+
+  <!-- Paginación -->
+  <div id="catalogoPagination" class="catalogo-pagination"></div>
 </section>
 
-
-<!-- RECOMENDACIONES -->
+<!-- RECOMENDACIONES (se mantiene simple) -->
 <section class="recomendaciones">
   <h2>Recomendaciones</h2>
 
   <div class="recomendaciones-grid">
-
     <div class="recomendacion">
-      <img src="https://placehold.co/100x100">
+      <img src="https://placehold.co/100x100" alt="Foto usuario">
       <div class="info">
         <h4>⭐⭐⭐⭐⭐ Luis</h4>
         <p>Excelente lugar, muy tranquilo y con todo cerca.</p>
@@ -176,7 +578,7 @@
     </div>
 
     <div class="recomendacion">
-      <img src="https://placehold.co/100x100">
+      <img src="https://placehold.co/100x100" alt="Foto usuario">
       <div class="info">
         <h4>⭐⭐⭐⭐ Ana</h4>
         <p>Muy buena experiencia, las fotos coinciden con la realidad.</p>
@@ -185,61 +587,23 @@
     </div>
 
     <div class="recomendacion">
-      <img src="https://placehold.co/100x100">
+      <img src="https://placehold.co/100x100" alt="Foto usuario">
       <div class="info">
         <h4>⭐⭐⭐⭐⭐ Pedro</h4>
         <p>Perfecto para estudiantes, seguro y accesible.</p>
         <a href="#" class="ver-lugar">Ver lugar</a>
       </div>
     </div>
-
   </div>
 </section>
 
-
-<!-- FOOTER -->
 <footer class="footer">
-  <div class="footer-cols">
-
-    <div class="footer-col">
-      <h3>Explorar</h3>
-      <ul>
-        <li><a href="#">Zonas Cercanas</a></li>
-        <li><a href="#">Comparador</a></li>
-        <li><a href="#">Viviendas</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Sobre Nosotros</h3>
-      <ul>
-        <li><a href="#">Quiénes Somos</a></li>
-        <li><a href="#">Misión y Visión</a></li>
-        <li><a href="#">Equipo</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h3>Contacto</h3>
-      <p>
-        Lima Metropolitana, Perú<br>
-        (01) 345-9823<br>
-        contacto@viviestu.pe
-      </p>
-    </div>
-
-  </div>
-
   <p class="footer-copy">© 2025 ViviEstu. Todos los derechos reservados.</p>
 </footer>
 
-
-
-
-<!-- ========================== -->
-<!--       JAVASCRIPT LOGIN     -->
-<!-- ========================== -->
+<!-- JS -->
 <script src="../js/app.js"></script>
+<script src="../js/catalogo.js"></script>
 
 </body>
 </html>
