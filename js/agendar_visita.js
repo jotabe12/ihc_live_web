@@ -1,8 +1,69 @@
 // ==========================================
-// AGENDAR VISITA — CARGAR INFO + RESERVAS
+// AGENDAR VISITA — CARGAR INFO + RESERVAS CON LOCALSTORAGE
 // ==========================================
 
+// =====================================================
+// RESERVATION MANAGER - Manejo de reservas con localStorage
+// =====================================================
+const ReservationManager = {
+    // Obtener todas las reservas del usuario actual
+    getUserReservations: function() {
+        const user = SessionManager.getUser();
+        if (!user) return [];
+
+        const allReservations = JSON.parse(localStorage.getItem("reservas")) || {};
+        return allReservations[user.email] || [];
+    },
+
+    // Guardar reserva para el usuario actual
+    saveReservation: function(reserva) {
+        const user = SessionManager.getUser();
+        if (!user) return false;
+
+        const allReservations = JSON.parse(localStorage.getItem("reservas")) || {};
+
+        if (!allReservations[user.email]) {
+            allReservations[user.email] = [];
+        }
+
+        // Generar ID único para la reserva
+        reserva.id = Date.now() + Math.random().toString(36).substr(2, 9);
+        reserva.fechaCreacion = new Date().toISOString();
+
+        allReservations[user.email].push(reserva);
+        localStorage.setItem("reservas", JSON.stringify(allReservations));
+
+        return true;
+    },
+
+    // Eliminar reserva por ID
+    deleteReservation: function(reservaId) {
+        const user = SessionManager.getUser();
+        if (!user) return false;
+
+        const allReservations = JSON.parse(localStorage.getItem("reservas")) || {};
+
+        if (allReservations[user.email]) {
+            allReservations[user.email] = allReservations[user.email].filter(r => r.id !== reservaId);
+            localStorage.setItem("reservas", JSON.stringify(allReservations));
+            return true;
+        }
+
+        return false;
+    }
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    // =====================================================
+    // VERIFICAR SESIÓN - Requerir login para reservar
+    // =====================================================
+    const user = SessionManager.getUser();
+    if (!user) {
+        alert('⚠️ Debes iniciar sesión para hacer reservas');
+        window.location.href = 'iniciar_sesion.html';
+        return;
+    }
 
     // =====================================================
     // 🔥 CARGAR INFO DEL INMUEBLE SELECCIONADO (localStorage)
@@ -62,7 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const confirmarBtn = document.querySelector('.btn-confirmar');
     const scheduleItems = document.querySelectorAll('.schedule-item');
 
-    let reservaCounter = 0;
 
     let reservaInfo = {
         fecha: null,
@@ -174,47 +234,39 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        reservaCounter++;
+        if (!inmueble) {
+            alert('⚠️ No hay inmueble seleccionado');
+            return;
+        }
 
         const fechaObj = new Date(reservaInfo.fecha + 'T00:00:00');
         const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
         const fechaFormateada = fechaObj.toLocaleDateString('es-ES', opciones);
 
-        const reservaElement = document.createElement('div');
-        reservaElement.className = 'reserva-confirmada';
-        reservaElement.innerHTML = `
-            <div class="reserva-header">
-                <h3>✅ Reserva ${reservaCounter}</h3>
-                <button class="btn-eliminar-reserva" onclick="eliminarReserva(this)">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-            <div class="reserva-info">
-                <p><i class="fas fa-calendar"></i> <strong>Fecha:</strong> ${fechaFormateada}</p>
-                <p><i class="fas fa-clock"></i> <strong>Hora:</strong> ${reservaInfo.hora}</p>
-                <p><i class="fas fa-bell"></i> <strong>Notificaciones:</strong> ${reservaInfo.notificacion ? 'Sí' : 'No'}</p>
-            </div>
-        `;
+        // Crear objeto de reserva completo
+        const nuevaReserva = {
+            inmueble: inmueble.titulo,
+            inmuebleImagen: inmueble.imagen,
+            inmueblePrecio: inmueble.precio,
+            inmuebleZona: inmueble.zona,
+            fecha: reservaInfo.fecha,
+            fechaFormateada: fechaFormateada,
+            hora: reservaInfo.hora,
+            notificacion: reservaInfo.notificacion
+        };
 
-        let reservasContainer = document.getElementById('reservas-lista');
+        // Guardar en localStorage
+        const saved = ReservationManager.saveReservation(nuevaReserva);
 
-        if (!reservasContainer) {
-            reservasContainer = document.createElement('div');
-            reservasContainer.id = 'reservas-lista';
-            reservasContainer.className = 'reservas-lista';
-
-            const tituloReservas = document.createElement('h2');
-            tituloReservas.className = 'titulo-reservas';
-            tituloReservas.textContent = 'Mis Reservas';
-
-            const mainContent = document.querySelector('.main-content');
-            mainContent.appendChild(tituloReservas);
-            mainContent.appendChild(reservasContainer);
+        if (!saved) {
+            alert('⚠️ Error al guardar la reserva. Por favor, inicia sesión.');
+            return;
         }
 
-        reservasContainer.insertBefore(reservaElement, reservasContainer.firstChild);
+        // Mostrar en la interfaz
+        mostrarReserva(nuevaReserva);
 
-        alert(`✅ ¡Reserva ${reservaCounter} confirmada!\n${fechaFormateada}, ${reservaInfo.hora}`);
+        alert(`✅ ¡Reserva confirmada!\n${inmueble.titulo}\n${fechaFormateada}, ${reservaInfo.hora}`);
 
         resetearFormulario();
     });
@@ -233,24 +285,156 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.input-reserva, .checkbox-container')
             .forEach(el => el.remove());
     }
+
+    // ==========================================
+    // MOSTRAR RESERVA EN LA INTERFAZ
+    // ==========================================
+    function mostrarReserva(reserva) {
+        let reservasContainer = document.getElementById('reservas-lista');
+
+        if (!reservasContainer) {
+            reservasContainer = document.createElement('div');
+            reservasContainer.id = 'reservas-lista';
+            reservasContainer.className = 'reservas-lista';
+
+            const tituloReservas = document.createElement('h2');
+            tituloReservas.className = 'titulo-reservas';
+            tituloReservas.textContent = 'Mis Reservas';
+
+            const mainContent = document.querySelector('.main-content');
+            mainContent.appendChild(tituloReservas);
+            mainContent.appendChild(reservasContainer);
+        }
+
+        const reservaElement = document.createElement('div');
+        reservaElement.className = 'reserva-confirmada';
+        reservaElement.dataset.reservaId = reserva.id;
+        reservaElement.innerHTML = `
+            <div class="reserva-header">
+                <h3>✅ ${reserva.inmueble}</h3>
+                <button class="btn-eliminar-reserva" onclick="eliminarReservaClick('${reserva.id}')">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+            <div class="reserva-info">
+                <p><i class="fas fa-home"></i> <strong>Inmueble:</strong> ${reserva.inmueble}</p>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Zona:</strong> ${reserva.inmuebleZona || 'N/A'}</p>
+                <p><i class="fas fa-calendar"></i> <strong>Fecha:</strong> ${reserva.fechaFormateada}</p>
+                <p><i class="fas fa-clock"></i> <strong>Hora:</strong> ${reserva.hora}</p>
+                <p><i class="fas fa-bell"></i> <strong>Notificaciones:</strong> ${reserva.notificacion ? 'Sí' : 'No'}</p>
+                <p><i class="fas fa-dollar-sign"></i> <strong>Precio:</strong> S/ ${reserva.inmueblePrecio}</p>
+            </div>
+        `;
+
+        reservasContainer.insertBefore(reservaElement, reservasContainer.firstChild);
+    }
+
+    // ==========================================
+    // CARGAR RESERVAS EXISTENTES AL INICIO
+    // ==========================================
+    function cargarReservasExistentes() {
+        const reservas = ReservationManager.getUserReservations();
+
+        if (reservas.length > 0) {
+            reservas.reverse().forEach(reserva => {
+                mostrarReserva(reserva);
+            });
+        }
+    }
+
+    // Cargar reservas al iniciar la página
+    cargarReservasExistentes();
+
+    // ==========================================
+    // CARGAR RESEÑAS DE LA VIVIENDA
+    // ==========================================
+    function cargarResenasVivienda() {
+        if (!inmueble) return;
+
+        const reviewsContainer = document.getElementById('reviews-container');
+        const comentarios = JSON.parse(localStorage.getItem("foroComentarios")) || [];
+
+        // Filtrar solo las reseñas de esta vivienda
+        const resenasVivienda = comentarios.filter(c =>
+            c.esResena &&
+            c.vivienda &&
+            c.vivienda.nombre === inmueble.titulo
+        );
+
+        if (resenasVivienda.length === 0) {
+            reviewsContainer.innerHTML = '<p class="no-reviews">No hay reseñas aún para esta vivienda</p>';
+            return;
+        }
+
+        // Mostrar últimas 3 reseñas
+        const ultimasResenas = resenasVivienda.slice(-3).reverse();
+
+        reviewsContainer.innerHTML = ultimasResenas.map(resena => {
+            const stars = Array(resena.rating).fill('<i class="fas fa-star"></i>').join('');
+            return `
+                <div class="review-item" onclick="window.location.href='foro_estudiantil.html'">
+                    <div class="review-header">
+                        <span class="review-author">👤 ${resena.nombre}</span>
+                        <span class="review-stars">${stars}</span>
+                    </div>
+                    <p class="review-text">${resena.texto}</p>
+                    <span class="review-date">📅 ${resena.fecha}</span>
+                </div>
+            `;
+        }).join('');
+
+        // Actualizar el rating promedio si hay reseñas
+        if (resenasVivienda.length > 0) {
+            const promedioRating = resenasVivienda.reduce((sum, r) => sum + r.rating, 0) / resenasVivienda.length;
+            const ratingNumber = document.querySelector('.rating-number');
+            if (ratingNumber) {
+                ratingNumber.textContent = `(${promedioRating.toFixed(1)} - ${resenasVivienda.length} reseña${resenasVivienda.length > 1 ? 's' : ''})`;
+            }
+
+            // Actualizar estrellas visuales
+            const starsContainer = document.querySelector(".stars");
+            if (starsContainer) {
+                starsContainer.innerHTML = "";
+                for (let i = 1; i <= 5; i++) {
+                    starsContainer.innerHTML += `<span class="star">${i <= Math.round(promedioRating) ? "⭐" : "☆"}</span>`;
+                }
+            }
+        }
+    }
+
+    // Cargar reseñas al iniciar
+    cargarResenasVivienda();
 });
 
 // ==========================================
-// ELIMINAR RESERVA
+// ELIMINAR RESERVA - FUNCIÓN GLOBAL
 // ==========================================
-function eliminarReserva(button) {
+function eliminarReservaClick(reservaId) {
     if (confirm('¿Eliminar esta reserva?')) {
-        const reservaElement = button.closest('.reserva-confirmada');
-        reservaElement.style.animation = 'fadeOut 0.3s ease';
+        // Eliminar del localStorage
+        const deleted = ReservationManager.deleteReservation(reservaId);
 
-        setTimeout(() => {
-            reservaElement.remove();
+        if (!deleted) {
+            alert('⚠️ Error al eliminar la reserva');
+            return;
+        }
 
-            const reservasContainer = document.getElementById('reservas-lista');
-            if (reservasContainer && reservasContainer.children.length === 0) {
-                reservasContainer.previousElementSibling.remove();
-                reservasContainer.remove();
-            }
-        }, 300);
+        // Eliminar de la interfaz
+        const reservaElement = document.querySelector(`[data-reserva-id="${reservaId}"]`);
+        if (reservaElement) {
+            reservaElement.style.animation = 'fadeOut 0.3s ease';
+
+            setTimeout(() => {
+                reservaElement.remove();
+
+                const reservasContainer = document.getElementById('reservas-lista');
+                if (reservasContainer && reservasContainer.children.length === 0) {
+                    reservasContainer.previousElementSibling.remove();
+                    reservasContainer.remove();
+                }
+            }, 300);
+        }
+
+        alert('✅ Reserva eliminada correctamente');
     }
 }

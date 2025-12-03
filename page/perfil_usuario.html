@@ -79,32 +79,30 @@
         <div class="activity-section">
             <div class="section-header">
                 <h3 class="section-title">Reservas completadas</h3>
-                <a href="#" class="ver-todo">ver todo</a>
+                <a href="agendar_visita.html" class="ver-todo">ver todo</a>
             </div>
-            <div class="section-content">
-                <p>→ Reserva del Martes 25 de Julio</p>
-            </div>
-        </div>
-
-        <div class="activity-section">
-            <div class="section-header">
-                <h3 class="section-title">Reseñas</h3>
-                <a href="#" class="ver-todo">ver todo</a>
-            </div>
-            <div class="section-content">
-                <p class="meta-info">1 reviews</p>
-                <p>Review al arrendador Juan</p>
+            <div class="section-content" id="reservas-perfil-content">
+                <p class="no-reservas">No tienes reservas aún</p>
             </div>
         </div>
 
         <div class="activity-section">
             <div class="section-header">
-                <h3 class="section-title">Interacciones</h3>
-                <a href="#" class="ver-todo">ver todo</a>
+                <h3 class="section-title">Reseñas de Viviendas</h3>
+                <a href="foro_estudiantil.html" class="ver-todo">ver todas</a>
             </div>
-            <div class="section-content">
-                <p class="meta-info">1 comentario</p>
-                <p>Arrendador Juan - Me encantó lo amable que fue</p>
+            <div class="section-content" id="resenas-perfil-content">
+                <p class="no-reservas">No tienes reseñas aún</p>
+            </div>
+        </div>
+
+        <div class="activity-section">
+            <div class="section-header">
+                <h3 class="section-title">Comentarios en el Foro</h3>
+                <a href="foro_estudiantil.html" class="ver-todo">ver todos</a>
+            </div>
+            <div class="section-content" id="comentarios-perfil-content">
+                <p class="no-reservas">No tienes comentarios aún</p>
             </div>
         </div>
     </div>
@@ -248,6 +246,114 @@ document.addEventListener('DOMContentLoaded', function() {
             mensajeError.style.display = 'block';
         }
     });
+
+    // ==========================================
+    // CARGAR RESERVAS DEL USUARIO
+    // ==========================================
+    function cargarReservasPerfil() {
+        const allReservations = JSON.parse(localStorage.getItem("reservas")) || {};
+        const userReservations = allReservations[user.email] || [];
+
+        const reservasContainer = document.getElementById('reservas-perfil-content');
+
+        if (userReservations.length === 0) {
+            reservasContainer.innerHTML = '<p class="no-reservas">No tienes reservas aún</p>';
+            return;
+        }
+
+        // Mostrar últimas 3 reservas
+        const ultimasReservas = userReservations.slice(-3).reverse();
+
+        reservasContainer.innerHTML = ultimasReservas.map(reserva => `
+            <div class="reserva-item">
+                <p><strong>📍 ${reserva.inmueble}</strong></p>
+                <p>📅 ${reserva.fechaFormateada} - ⏰ ${reserva.hora}</p>
+                <p>💰 S/ ${reserva.inmueblePrecio}</p>
+            </div>
+        `).join('');
+
+        // Agregar contador
+        const sectionHeader = reservasContainer.previousElementSibling;
+        const verTodoLink = sectionHeader.querySelector('.ver-todo');
+        if (verTodoLink) {
+            verTodoLink.textContent = `ver todas (${userReservations.length})`;
+        }
+    }
+
+    // Cargar reservas al iniciar
+    cargarReservasPerfil();
+
+    // ==========================================
+    // CARGAR RESEÑAS DEL USUARIO
+    // ==========================================
+    function cargarResenasPerfil() {
+        const interacciones = JSON.parse(localStorage.getItem("userInteracciones")) || {};
+        const userInteracciones = interacciones[user.email] || { resenas: [], comentarios: [] };
+        const resenasContainer = document.getElementById('resenas-perfil-content');
+
+        if (userInteracciones.resenas.length === 0) {
+            resenasContainer.innerHTML = '<p class="no-reservas">No tienes reseñas aún</p>';
+            return;
+        }
+
+        // Mostrar últimas 3 reseñas
+        const ultimasResenas = userInteracciones.resenas.slice(-3).reverse();
+
+        resenasContainer.innerHTML = ultimasResenas.map(resena => {
+            const stars = Array(resena.rating).fill('⭐').join('');
+            return `
+                <div class="reserva-item" style="cursor: pointer;" onclick="window.location.href='foro_estudiantil.html'">
+                    <p><strong>🏠 ${resena.vivienda.nombre}</strong></p>
+                    <p>${stars} (${resena.rating}/5)</p>
+                    <p style="font-size: 0.9rem; color: #666;">${resena.texto.substring(0, 60)}${resena.texto.length > 60 ? '...' : ''}</p>
+                    <small style="color: #888;">📅 ${resena.fecha}</small>
+                </div>
+            `;
+        }).join('');
+
+        // Agregar contador
+        const sectionHeader = resenasContainer.previousElementSibling;
+        const verTodoLink = sectionHeader.querySelector('.ver-todo');
+        if (verTodoLink) {
+            verTodoLink.textContent = `ver todas (${userInteracciones.resenas.length})`;
+        }
+    }
+
+    // ==========================================
+    // CARGAR COMENTARIOS DEL USUARIO
+    // ==========================================
+    function cargarComentariosPerfil() {
+        const interacciones = JSON.parse(localStorage.getItem("userInteracciones")) || {};
+        const userInteracciones = interacciones[user.email] || { resenas: [], comentarios: [] };
+        const comentariosContainer = document.getElementById('comentarios-perfil-content');
+
+        if (userInteracciones.comentarios.length === 0) {
+            comentariosContainer.innerHTML = '<p class="no-reservas">No tienes comentarios aún</p>';
+            return;
+        }
+
+        // Mostrar últimos 3 comentarios
+        const ultimosComentarios = userInteracciones.comentarios.slice(-3).reverse();
+
+        comentariosContainer.innerHTML = ultimosComentarios.map(comentario => `
+            <div class="reserva-item" style="cursor: pointer;" onclick="window.location.href='foro_estudiantil.html'">
+                <p><strong>💬 ${comentario.ubicacion}</strong></p>
+                <p style="font-size: 0.9rem; color: #666;">${comentario.texto.substring(0, 80)}${comentario.texto.length > 80 ? '...' : ''}</p>
+                <small style="color: #888;">📅 ${comentario.fecha}</small>
+            </div>
+        `).join('');
+
+        // Agregar contador
+        const sectionHeader = comentariosContainer.previousElementSibling;
+        const verTodoLink = sectionHeader.querySelector('.ver-todo');
+        if (verTodoLink) {
+            verTodoLink.textContent = `ver todos (${userInteracciones.comentarios.length})`;
+        }
+    }
+
+    // Cargar reseñas y comentarios al iniciar
+    cargarResenasPerfil();
+    cargarComentariosPerfil();
 });
 </script>
 </body>

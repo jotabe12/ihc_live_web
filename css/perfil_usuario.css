@@ -307,6 +307,37 @@ body {
     margin-bottom: 10px !important;
 }
 
+/* Reservas en perfil */
+.reserva-item {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 4px solid #007c91;
+    transition: all 0.3s ease;
+}
+
+.reserva-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.reserva-item p {
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.reserva-item strong {
+    color: #007c91;
+}
+
+.no-reservas {
+    color: #6c757d;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
 /* Footer */
 .footer {
     background-color: #12213a;
